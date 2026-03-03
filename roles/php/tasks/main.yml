@@ -1,0 +1,38 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/php
+- name: update apt cache & install {{ php_package_name }}
+  apt:
+    update_cache: yes
+    name: "{{ php_package_name }}"
+    state: present
+
+- name: enable and start {{ php_service_name }} server
+  service:
+    name: "{{ php_service_name }}"
+    state: started
+    enabled: yes
+
+- name: enable apache2 modules for {{ php_package_name }}
+  apache2_module:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ apache2_php_modules }}"
+
+- name: enable apache2 conf '{{ php_package_name }}.conf' & restart apache2
+  file:
+    src: /etc/apache2/conf-available/{{ php_package_name }}.conf
+    dest: /etc/apache2/conf-enabled/{{ php_package_name }}.conf
+    state: link
+  notify: "restart apache2"
+
+- name: create index.php
+  template:
+    src: index.php.j2
+    dest: /var/www/html/index.php
+    mode: '0644'
+
+- name: remove index.html
+  file:
+    path: /var/www/html/index.html
+    state: absent

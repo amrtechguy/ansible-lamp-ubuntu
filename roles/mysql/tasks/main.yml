@@ -1,0 +1,18 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/mysql
+- name: update apt cache & install {{ mysql_package_name }} & required {{ php_fpm_service_name }} modules
+  apt:
+    update_cache: yes
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ mysql_package_name }}"
+    - "{{ mysql_php_modules }}"
+
+- name: enable and start {{ mysql_service_name }} & restart {{ php_fpm_service_name }}
+  service:
+    name: "{{ mysql_service_name }}"
+    state: started
+    enabled: yes
+  notify: "restart php-fpm"

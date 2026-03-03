@@ -1,0 +1,12 @@
+<?php
+echo '<html>
+  <head>
+    <title>Apache2</title>
+  </head>
+  <body>
+    <h1>Ansible automation success!</h1>
+    <p>Hostname: {{ ansible_hostname }}</p>
+    <p>Distribution: {{ ansible_distribution }} {{ ansible_distribution_version }}</p>
+    <p>Server IP: {{ ansible_default_ipv4.address }}</p>
+  </body>
+</html>';

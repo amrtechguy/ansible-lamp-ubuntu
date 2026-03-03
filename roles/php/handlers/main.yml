@@ -1,0 +1,12 @@
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for roles/php
+- name: restart php-fpm
+  service:
+    name: pmphp8.4-fpm
+    state: restarted
+
+- name: reload php-fpm
+  service:
+    name: php8.4-fpm
+    state: reloaded

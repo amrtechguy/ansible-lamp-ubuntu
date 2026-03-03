@@ -1,0 +1,2 @@
+[webservers]
+srv-1 ansible_host= ansible_user=

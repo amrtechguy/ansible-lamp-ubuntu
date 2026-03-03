@@ -1,0 +1,8 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for roles/mysql
+mysql_package_name: mysql-server 
+mysql_service_name: mysql
+php_fpm_service_name: php8.4-fpm
+mysql_php_modules:
+  - php8.4-mysql

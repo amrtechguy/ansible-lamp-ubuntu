@@ -1,0 +1,16 @@
+---
+- name: LAMP Setup and Hardening
+  hosts: srv-1
+  
+  pre_tasks:
+    - name: verify os is ubuntu
+      assert:
+        that:
+          - ansible_distribution == "Ubuntu"
+        fail_msg: "This playbook only supports Ubuntu. found {{ ansible_distribution }}"
+        success_msg: "OS verified. found {{ ansible_distribution }} {{ ansible_distribution_version }}"
+  
+  roles:
+    - apache2
+    - php
+    - mysql
