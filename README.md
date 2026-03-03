@@ -22,8 +22,8 @@ ansible-playbook -i hosts playbook.yml
 ```
 
 # Roadmap
-[x] Basic modular playbook.
-[x] Basic provesioning of LAMP stack (Apache2, MySQL, PHP-FPM).
-[ ] Harden Apache2.
-[ ] Harden MySQL.
-[ ] Harden PHP-FPM.
+- [x] Basic modular playbook.
+- [x] Basic provesioning of LAMP stack (Apache2, MySQL, PHP-FPM).
+- [ ] Harden Apache2.
+- [ ] Harden MySQL.
+- [ ] Harden PHP-FPM.
