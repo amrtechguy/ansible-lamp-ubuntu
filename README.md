@@ -20,3 +20,6 @@ ansible-galaxy install -r requirements.yml
 ```bash
 ansible-playbook -i hosts playbook.yml
 ```
+
+> [!NOTE]
+> The Ansible playbook does not include hardening or tuning the LAMP stack, just the defaults.
