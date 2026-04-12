@@ -1,5 +1,5 @@
 # Ansible LAMP Stack for Ubuntu
-A modular Ansible playbook designed to provision and secure LAMP stack (Apache2, MySQL, PHP-FPM) on Ubuntu.
+A modular Ansible playbook designed to provision a LAMP stack (Apache2, MySQL, PHP-FPM) on Ubuntu server.
 
 # Environment
 - Ansible: core 2.19.0
@@ -20,10 +20,3 @@ ansible-galaxy install -r requirements.yml
 ```bash
 ansible-playbook -i hosts playbook.yml
 ```
-
-# Roadmap
-- [x] Basic modular playbook.
-- [x] Basic provesioning of LAMP stack (Apache2, MySQL, PHP-FPM).
-- [ ] Harden Apache2.
-- [ ] Harden MySQL.
-- [ ] Harden PHP-FPM.
